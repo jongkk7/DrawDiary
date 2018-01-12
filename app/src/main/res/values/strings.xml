@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">DrawView</string>
+
+    <!-- tutorial -->
+    <string name="tutorial01">못 그려도 괜찮아요.</string>
+    <string name="tutorial02">나만의 그림일기를 작성해요</string>
+
+
+    <!-- color -->
+    <string name="color01">#FF4A67</string>
+    <string name="color02">#7C4CB8</string>
+    <string name="color03">#FF7B67</string>
+    <string name="color04">#FF8EBD</string>
+    <string name="color05">#FFC667</string>
+    <string name="color06">#FFB08E</string>
+    <string name="color07">#48B367</string>
+    <string name="color08">#50BEB8</string>
+    <string name="color09">#507BB8</string>
+    <string name="color10">#000000</string>
+    <string name="color11">#393884</string>
+    <string name="color12">#FFFFFF</string>
+</resources>

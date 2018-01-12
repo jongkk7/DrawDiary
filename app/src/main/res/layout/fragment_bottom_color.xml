@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_gravity="center"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+
+
+    <LinearLayout
+        android:layout_marginTop="@dimen/colorImageMarginLeft"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/color01"
+            android:foregroundTint="@color/color01"
+            android:foreground="@drawable/shape_color_iamge_view_01"
+            android:layout_width="@dimen/colorImageSize"
+            android:layout_height="@dimen/colorImageSize" />
+
+        <ImageView
+            android:id="@+id/color03"
+            android:layout_marginLeft="@dimen/colorImageMarginLeft"
+            android:foregroundTint="@color/color03"
+            android:foreground="@drawable/shape_color_iamge_view_01"
+            android:layout_width="@dimen/colorImageSize"
+            android:layout_height="@dimen/colorImageSize" />
+
+        <ImageView
+            android:id="@+id/color05"
+            android:layout_marginLeft="@dimen/colorImageMarginLeft"
+            android:foregroundTint="@color/color05"
+            android:foreground="@drawable/shape_color_iamge_view_01"
+            android:layout_width="@dimen/colorImageSize"
+            android:layout_height="@dimen/colorImageSize" />
+
+        <ImageView
+            android:id="@+id/color07"
+            android:layout_marginLeft="@dimen/colorImageMarginLeft"
+            android:foregroundTint="@color/color07"
+            android:foreground="@drawable/shape_color_iamge_view_01"
+            android:layout_width="@dimen/colorImageSize"
+            android:layout_height="@dimen/colorImageSize" />
+
+        <ImageView
+            android:id="@+id/color09"
+            android:layout_marginLeft="@dimen/colorImageMarginLeft"
+            android:foregroundTint="@color/color09"
+            android:foreground="@drawable/shape_color_iamge_view_01"
+            android:layout_width="@dimen/colorImageSize"
+            android:layout_height="@dimen/colorImageSize" />
+
+        <ImageView
+            android:id="@+id/color11"
+            android:layout_marginLeft="@dimen/colorImageMarginLeft"
+            android:foregroundTint="@color/color10"
+            android:foreground="@drawable/shape_color_iamge_view_01"
+            android:layout_width="@dimen/colorImageSize"
+            android:layout_height="@dimen/colorImageSize" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="@dimen/colorImageMarginLeft"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/color02"
+            android:foregroundTint="@color/color02"
+            android:foreground="@drawable/shape_color_iamge_view_01"
+            android:layout_width="@dimen/colorImageSize"
+            android:layout_height="@dimen/colorImageSize" />
+
+        <ImageView
+            android:id="@+id/color04"
+            android:layout_marginLeft="@dimen/colorImageMarginLeft"
+            android:foregroundTint="@color/color04"
+            android:foreground="@drawable/shape_color_iamge_view_01"
+            android:layout_width="@dimen/colorImageSize"
+            android:layout_height="@dimen/colorImageSize" />
+
+        <ImageView
+            android:id="@+id/color06"
+            android:layout_marginLeft="@dimen/colorImageMarginLeft"
+            android:foregroundTint="@color/color06"
+            android:foreground="@drawable/shape_color_iamge_view_01"
+            android:layout_width="@dimen/colorImageSize"
+            android:layout_height="@dimen/colorImageSize" />
+
+        <ImageView
+            android:id="@+id/color08"
+            android:layout_marginLeft="@dimen/colorImageMarginLeft"
+            android:foregroundTint="@color/color07"
+            android:foreground="@drawable/shape_color_iamge_view_01"
+            android:layout_width="@dimen/colorImageSize"
+            android:layout_height="@dimen/colorImageSize" />
+
+        <ImageView
+            android:id="@+id/color10"
+            android:layout_marginLeft="@dimen/colorImageMarginLeft"
+            android:foregroundTint="@color/color10"
+            android:foreground="@drawable/shape_color_iamge_view_01"
+            android:layout_width="@dimen/colorImageSize"
+            android:layout_height="@dimen/colorImageSize" />
+
+        <ImageView
+            android:id="@+id/color12"
+            android:layout_marginLeft="@dimen/colorImageMarginLeft"
+            android:foregroundTint="@color/color12"
+            android:foreground="@drawable/shape_color_iamge_view_01"
+            android:layout_width="@dimen/colorImageSize"
+            android:layout_height="@dimen/colorImageSize" />
+    </LinearLayout>
+
+</LinearLayout>
+

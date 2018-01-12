@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:id="@+id/diaryLayout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <!-- 날짜 & 날씨 -->
+    <RelativeLayout
+        android:id="@+id/topLayout"
+        android:padding="@dimen/topPadding"
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <include
+            android:id="@+id/date_layout"
+            layout="@layout/fragment_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <include layout="@layout/fragment_weather"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"/>
+
+    </RelativeLayout>
+
+
+    <!-- 그림판 -->
+    <com.nainfox.drawview.draw.DrawView
+        android:id="@+id/drawview"
+        android:layout_below="@+id/topLayout"
+        android:layout_above="@id/writeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"/>
+
+    <!-- 작성 공간 -->
+    <RelativeLayout
+        android:id="@+id/writeLayout"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+
+</RelativeLayout>
+

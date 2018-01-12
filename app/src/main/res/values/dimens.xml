@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- tutorial -->
+    <dimen name="tutorialImageMarginTop">130dp</dimen>
+    <dimen name="tutorialTextMarginTop">40dp</dimen>
+
+    <!-- title bar -->
+    <dimen name="titlebarHeight">58dp</dimen>
+    <dimen name="titlebarImageSize">30dp</dimen>
+    <dimen name="titlebarMargin">20dp</dimen>
+    <dimen name="titlebarTextSize">30sp</dimen>
+
+    <!-- text size -->
+    <dimen name="bigTextSize">30dp</dimen>
+    <dimen name="middleTextSize">20sp</dimen>
+    <dimen name="smallTextSize">16sp</dimen>
+
+    <dimen name="weatherImageSize">20dp</dimen>
+    <dimen name="circleImageSize">20dp</dimen>
+
+    <!-- bottom layout -->
+    <dimen name="colorImageSize">35dp</dimen>
+    <dimen name="colorImageMarginLeft">10dp</dimen>
+    <dimen name="bottomButtonMarginBottom">-50dp</dimen>
+
+    <!-- padding -->
+    <dimen name="topPadding">10dp</dimen>
+
+    <!-- margin -->
+    <dimen name="smallMargin">5dp</dimen>
+</resources>
