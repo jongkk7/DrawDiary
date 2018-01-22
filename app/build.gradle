@@ -40,4 +40,7 @@ dependencies {
 
     // View Pager - indicatot
     compile 'me.relex:circleindicator:1.2.2@aar'
+
+    // keyboard
+    compile 'com.azimolabs.keyboardwatcher:keyboardwatcher:0.1.3'
 }

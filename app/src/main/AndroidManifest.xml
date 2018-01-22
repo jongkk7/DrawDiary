@@ -23,12 +23,16 @@
         </activity>
         <activity android:name=".view.load.TutorialActivity"/>
         <activity android:name=".view.main.MainActivity"/>
-        <activity android:name=".view.AddDiaryActivity"/>
+        <activity android:name=".view.add.AddDiaryActivity"
+            android:windowSoftInputMode="adjustResize"/>
+
         <!-- popup -->
         <activity
-            android:name=".view.WritePopup"
+            android:name=".view.add.WritePopup"
             android:theme="@android:style/Theme.Dialog"/>
-
+        <activity
+            android:name=".view.add.WeatherPopup"
+            android:theme="@style/AppTheme.CustomPopup"/>
     </application>
 
 </manifest>

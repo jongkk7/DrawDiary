@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="#ffffff"
+    android:orientation="vertical"
+    android:paddingBottom="10dp"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp">
+
+    <ImageView
+        android:id="@+id/weather_button01"
+        android:background="@drawable/weather01"
+        android:layout_width="@dimen/weatherImageSize"
+        android:layout_height="@dimen/weatherImageSize" />
+
+    <ImageView
+        android:id="@+id/weather_button02"
+        android:background="@drawable/weather02"
+        android:layout_marginTop="@dimen/weatherMargin"
+        android:layout_width="@dimen/weatherImageSize"
+        android:layout_height="@dimen/weatherImageSize" />
+
+    <ImageView
+        android:id="@+id/weather_button03"
+        android:background="@drawable/weather03"
+        android:layout_marginTop="@dimen/weatherMargin"
+        android:layout_width="@dimen/weatherImageSize"
+        android:layout_height="@dimen/weatherImageSize" />
+
+    <ImageView
+        android:id="@+id/weather_button04"
+        android:background="@drawable/weather04"
+        android:layout_marginTop="@dimen/weatherMargin"
+        android:layout_width="@dimen/weatherImageSize"
+        android:layout_height="@dimen/weatherImageSize" />
+
+</LinearLayout>

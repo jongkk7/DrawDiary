@@ -16,7 +16,7 @@ import com.gun0912.tedpermission.TedPermission;
 import com.nainfox.drawview.R;
 import com.nainfox.drawview.database.Database;
 import com.nainfox.drawview.database.SQLHelper;
-import com.nainfox.drawview.view.AddDiaryActivity;
+import com.nainfox.drawview.view.add.AddDiaryActivity;
 import com.nainfox.drawview.view.common.BasicActivity;
 
 import java.util.ArrayList;

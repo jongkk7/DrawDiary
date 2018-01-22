@@ -41,7 +41,6 @@ public class WriteFactory {
         return size.x;
     }
 
-
     /**
      * 글씨 적는 공간 ( 동적 생성 )
      * @param activity

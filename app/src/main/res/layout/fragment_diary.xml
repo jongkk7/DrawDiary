@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<FrameLayout
     android:id="@+id/diaryLayout"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -8,6 +8,21 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <include layout="@layout/popup_weather"
+        android:id="@+id/weather_layout"
+        android:visibility="invisible"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        />
+    <!-- 그림판 -->
+    <com.nainfox.drawview.draw.DrawView
+        android:id="@+id/drawview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"/>
 
     <!-- 날짜 & 날씨 -->
     <RelativeLayout
@@ -26,27 +41,24 @@
         <include layout="@layout/fragment_weather"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
             android:layout_alignParentRight="true"/>
+
+
 
     </RelativeLayout>
 
 
-    <!-- 그림판 -->
-    <com.nainfox.drawview.draw.DrawView
-        android:id="@+id/drawview"
-        android:layout_below="@+id/topLayout"
-        android:layout_above="@id/writeLayout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/white"/>
+
 
     <!-- 작성 공간 -->
     <RelativeLayout
         android:id="@+id/writeLayout"
-        android:layout_alignParentBottom="true"
+        android:background="@color/white"
+        android:layout_gravity="bottom"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
 
-</RelativeLayout>
+</FrameLayout>
 

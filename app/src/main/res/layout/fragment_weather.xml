@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:orientation="horizontal">
 
@@ -13,34 +13,15 @@
         android:layout_marginLeft="@dimen/smallMargin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
-    
+
     <ImageView
+        android:id="@+id/weather_button"
         android:background="@drawable/weather01"
         android:layout_marginLeft="@dimen/smallMargin"
         android:layout_gravity="center_vertical"
         android:layout_width="@dimen/weatherImageSize"
         android:layout_height="@dimen/weatherImageSize" />
 
-    <ImageView
-        android:background="@drawable/weather02"
-        android:layout_marginLeft="@dimen/smallMargin"
-        android:layout_gravity="center_vertical"
-        android:layout_width="@dimen/weatherImageSize"
-        android:layout_height="@dimen/weatherImageSize" />
-
-    <ImageView
-        android:background="@drawable/weather03"
-        android:layout_marginLeft="@dimen/smallMargin"
-        android:layout_gravity="center_vertical"
-        android:layout_width="@dimen/weatherImageSize"
-        android:layout_height="@dimen/weatherImageSize" />
-
-    <ImageView
-        android:background="@drawable/weather04"
-        android:layout_marginLeft="@dimen/smallMargin"
-        android:layout_gravity="center_vertical"
-        android:layout_width="@dimen/weatherImageSize"
-        android:layout_height="@dimen/weatherImageSize" />
 
 </LinearLayout>
 

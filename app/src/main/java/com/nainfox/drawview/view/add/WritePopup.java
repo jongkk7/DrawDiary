@@ -1,4 +1,4 @@
-package com.nainfox.drawview.view;
+package com.nainfox.drawview.view.add;
 
 import android.app.Activity;
 import android.content.Intent;

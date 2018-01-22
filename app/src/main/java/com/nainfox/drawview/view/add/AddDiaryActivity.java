@@ -1,20 +1,25 @@
-package com.nainfox.drawview.view;
+package com.nainfox.drawview.view.add;
 
 import android.app.DatePickerDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.Rect;
+import android.inputmethodservice.KeyboardView;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.util.Log;
-import android.view.SurfaceView;
+import android.view.KeyEvent;
+import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.DatePicker;
+import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -22,6 +27,7 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.azimolabs.keyboardwatcher.KeyboardWatcher;
 import com.nainfox.drawview.R;
 import com.nainfox.drawview.data.ColorData;
 import com.nainfox.drawview.database.SQLHelper;
@@ -34,20 +40,29 @@ import com.nainfox.drawview.util.SizeFactory;
 import com.nainfox.drawview.util.WriteFactory;
 import com.nainfox.drawview.view.common.BasicActivity;
 
-import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-public class AddDiaryActivity extends BasicActivity implements PathRedoUndoCountChangeListener, PathDrawnListener{
+public class AddDiaryActivity extends BasicActivity implements PathRedoUndoCountChangeListener, PathDrawnListener, View.OnKeyListener{
     private final String TAG = "### AddDiaryActivity";
 
     private final int WRITE_RESULT_CODE = 10;
+    private final int WEATHER_RESULT_CODE = 11;
 
     private final int PEN_STYLE = 1;
     private final int CRAYON_STYLE = 2;
     private final int ERASER_STYLE = 3;
     private final int COLOR_STYLE = 4;
+
+    private final int WEATHER01 = 1;
+    private final int WEATHER02 = 2;
+    private final int WEATHER03 = 3;
+    private final int WEATHER04 = 4;
+
+    private final String gray = "#eeeeee";
+    private final String darkgray = "#aaaaaa";
 
     // 글씨 판
     private final int row = 8;
@@ -59,11 +74,16 @@ public class AddDiaryActivity extends BasicActivity implements PathRedoUndoCount
     private TextView saveButton;
 
     // 그림일기 레이아웃
-    private RelativeLayout diaryLayout;
+    private FrameLayout diaryLayout;
 
     // 날짜
     private LinearLayout dateLayout;
     private TextView yearTextView, monthTextView, dayTextView, dateTextView;
+
+    // 날씨
+    private ImageView weatherButton, weatherButton01, weatherButton02, weatherButton03, weatherButton04;
+    private LinearLayout weatherLayout;
+
 
     // 그림판
     private DrawView drawView;
@@ -88,6 +108,7 @@ public class AddDiaryActivity extends BasicActivity implements PathRedoUndoCount
     private Animation upAnim1, upAnim2, upAnim3, downAnim1, downAnim2, downAnim3;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -99,7 +120,7 @@ public class AddDiaryActivity extends BasicActivity implements PathRedoUndoCount
     private void init(){
 
         // 그림일기 세로 사이즈 조정
-        diaryLayout = (RelativeLayout) findViewById(R.id.fragment_diary_layout);
+        diaryLayout = (FrameLayout) findViewById(R.id.fragment_diary_layout);
         SizeFactory sizeFactory = new SizeFactory();
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(sizeFactory.getWindowWidth(this), sizeFactory.getWindowWidth(this));
         diaryLayout.setLayoutParams(params);
@@ -117,7 +138,7 @@ public class AddDiaryActivity extends BasicActivity implements PathRedoUndoCount
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                save();
+                save2();
             }
         });
 
@@ -127,29 +148,35 @@ public class AddDiaryActivity extends BasicActivity implements PathRedoUndoCount
 
         initWriteLayout();
         initDateLayout();
+        initWeatherButton();
         initBottomLayout();
     }
 
-    /**
-     * 글씨 작성하는 레이아웃 초기화
-     */
+
+    // 글씨 작성하는 레이아웃 초기화
     private void initWriteLayout(){
         writeLayout = (RelativeLayout) findViewById(R.id.writeLayout);
+
         writeFactory = new WriteFactory();
         layout = writeFactory.createWritePlace(this, colume, row);
         writeLayout.addView(layout);
         writeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(AddDiaryActivity.this, WritePopup.class);
-                startActivityForResult(i, WRITE_RESULT_CODE);
+//                Intent i = new Intent(AddDiaryActivity.this, WritePopup.class);
+//                startActivityForResult(i, WRITE_RESULT_CODE);
+                try {
+                    InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                    inputMethodManager.toggleSoftInput(InputMethodManager.SHOW_IMPLICIT, InputMethodManager.RESULT_UNCHANGED_SHOWN);
+
+                }catch (Exception e){
+                    Log.d(TAG, "e : " + e.getMessage());
+                }
             }
         });
     }
 
-    /**
-     * 날짜 선택 레이아웃
-     */
+    // 날짜 선택 레이아웃
     private void initDateLayout(){
         yearTextView = (TextView) findViewById(R.id.date_year_textview);
         monthTextView = (TextView) findViewById(R.id.date_month_textview);
@@ -186,10 +213,70 @@ public class AddDiaryActivity extends BasicActivity implements PathRedoUndoCount
         });
     }
 
+    // 날씨 선택 초기화
+    private void initWeatherButton(){
+        weatherLayout = (LinearLayout) findViewById(R.id.weather_layout);
+        weatherButton = (ImageView) findViewById(R.id.weather_button);
+        weatherButton01 = (ImageView) findViewById(R.id.weather_button01);
+        weatherButton02 = (ImageView) findViewById(R.id.weather_button02);
+        weatherButton03 = (ImageView) findViewById(R.id.weather_button03);
+        weatherButton04 = (ImageView) findViewById(R.id.weather_button04);
 
-    /**
-     * 팬 스타일, 지우개, 배경색, redo & undo , 굵기, 색
-     */
+        weatherButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.d(TAG, "weather Button Clicked");
+                weatherLayout.setVisibility(View.VISIBLE);
+                weatherLayout.setZ(999);
+            }
+        });
+
+        weatherButton01.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                choice(WEATHER01);
+            }
+        });
+        weatherButton02.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                choice(WEATHER02);
+            }
+        });
+        weatherButton03.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                choice(WEATHER03);
+            }
+        });
+        weatherButton04.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                choice(WEATHER04);
+            }
+        });
+    }
+
+    // 해당 날씨에 맞춰 날씨 변경
+    private void choice(int type){
+        switch (type){
+            case 1:
+                weatherButton.setImageResource(R.drawable.weather01);
+                break;
+            case 2:
+                weatherButton.setImageResource(R.drawable.weather02);
+                break;
+            case 3:
+                weatherButton.setImageResource(R.drawable.weather03);
+                break;
+            case 4:
+                weatherButton.setImageResource(R.drawable.weather04);
+                break;
+        }
+        weatherLayout.setVisibility(View.INVISIBLE);
+    }
+
+    // 팬 스타일, 지우개, 배경색, redo & undo , 굵기, 색
     private void initBottomLayout(){
         // 애니메이션 초기화
         upAnim1 = AnimationUtils.loadAnimation(this, R.anim.anim_up);
@@ -200,7 +287,7 @@ public class AddDiaryActivity extends BasicActivity implements PathRedoUndoCount
         downAnim3 = AnimationUtils.loadAnimation(this, R.anim.anim_down);
 
         colorLayout = (LinearLayout) findViewById(R.id.colorLayout);
-        bottomLayout = (LinearLayout) findViewById(R.id.fragment_bottom_layout);
+        bottomLayout = (LinearLayout) findViewById(R.id.bottom_button_layout);
         textSizeSeekBar = (SeekBar) findViewById(R.id.text_size_seekbar);
 
         initColorButtons();
@@ -276,6 +363,7 @@ public class AddDiaryActivity extends BasicActivity implements PathRedoUndoCount
         });
     }
 
+    // 컬러 버튼 초기화
     private void initColorButtons(){
         colorButtons = new ImageView[12];
 
@@ -308,6 +396,14 @@ public class AddDiaryActivity extends BasicActivity implements PathRedoUndoCount
 
     }
 
+    @Override
+    public boolean onKey(View view, int i, KeyEvent keyEvent) {
+        Log.d(TAG, "i : " + i );
+        Log.d(TAG, "uni : " + keyEvent.getUnicodeChar());
+        return false;
+    }
+
+
     private class ColorButtonClickListener implements View.OnClickListener{
 
         private String color;
@@ -321,6 +417,7 @@ public class AddDiaryActivity extends BasicActivity implements PathRedoUndoCount
             drawView.setPaintColor(Color.parseColor(color));
         }
     }
+
     /**
      * 현재 선택된 팬에 따라 레이아웃 변경
      * 1: 연필
@@ -331,6 +428,9 @@ public class AddDiaryActivity extends BasicActivity implements PathRedoUndoCount
     private void setLayoutToPen(int pen){
         Log.d(TAG, "current pen : " + curruntPen + " , pen : " + pen);
         setDownAnim(curruntPen);
+
+        bottomLayout.setBackgroundColor(Color.parseColor(gray));
+        colorButton.setBackgroundColor(Color.parseColor("#00000000"));
 
         switch (pen){
             case 1:
@@ -356,7 +456,8 @@ public class AddDiaryActivity extends BasicActivity implements PathRedoUndoCount
                 break;
             case 4:
                 // color
-
+                bottomLayout.setBackgroundColor(Color.parseColor(darkgray));
+                colorButton.setBackgroundColor(Color.parseColor(gray));
                 textSizeSeekBar.setVisibility(View.INVISIBLE);
                 colorLayout.setVisibility(View.VISIBLE);
                 break;
@@ -383,7 +484,8 @@ public class AddDiaryActivity extends BasicActivity implements PathRedoUndoCount
 
 
     /**
-     * 작성한 글씨 받아서 writeLayout에 뿌려준다.
+     * 1. 작성한 글씨 받아서 writeLayout에 뿌려준다.
+     * 2. 날씨 선택
      */
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -419,28 +521,76 @@ public class AddDiaryActivity extends BasicActivity implements PathRedoUndoCount
 
         if(write == null) write = "-";
 
-        try {
-            SQLHelper sqlHelper = new SQLHelper(this);
-            long result = sqlHelper.INSERT(time, weather, url, all_url, write);
-            if(result < 0){
-                Toast.makeText(this, "저장에 실패했습니다. 다시 시도해주세요.", Toast.LENGTH_SHORT).show();
-            }
-            Toast.makeText(this, "저장 완료.", Toast.LENGTH_SHORT).show();
-            finish();
-        }catch (Exception e){
-            Toast.makeText(this, "저장에 실패했습니다. 다시 시도해주세요.", Toast.LENGTH_SHORT).show();
-        }
+//        try {
+//            SQLHelper sqlHelper = new SQLHelper(this);
+//            long result = sqlHelper.INSERT(time, weather, url, all_url, write);
+//            if(result < 0){
+//                Toast.makeText(this, "저장에 실패했습니다. 다시 시도해주세요.", Toast.LENGTH_SHORT).show();
+//            }
+//            Toast.makeText(this, "저장 완료.", Toast.LENGTH_SHORT).show();
+//            finish();
+//        }catch (Exception e){
+//            Toast.makeText(this, "저장에 실패했습니다. 다시 시도해주세요.", Toast.LENGTH_SHORT).show();
+//        }
+
+        Intent intent = new Intent();
+        intent.setAction(Intent.ACTION_SEND);
+        intent.setType("text/plain");
+        intent.putExtra(Intent.EXTRA_SUBJECT, "hi");
+        intent.putExtra(Intent.EXTRA_TEXT, "hi");
+
+        Intent chooser = Intent.createChooser(intent, "공유");
+        startActivity(chooser);
 
 
     }
 
+    private void save2(){
+
+        File file = saveFileToView(diaryLayout);
+        Uri uri = Uri.fromFile(file);
+
+        Intent shareIntent = new Intent(Intent.ACTION_SEND);
+        shareIntent.putExtra(Intent.EXTRA_STREAM, uri);
+        shareIntent.setType("image/*");
+        startActivity(Intent.createChooser(shareIntent,"공유"));
+    }
+
+
+    // view로부터 bitmap을 얻어 파일을 저장한다.
+    private File saveFileToView(View view){
+        view.setDrawingCacheEnabled(true);
+
+        Bitmap screenBitmap = view.getDrawingCache();
+
+        String filename = "screenshot.png";
+        File root_file = new File(Environment.getExternalStorageDirectory() + "/Diary");
+        if(!root_file.exists()){
+            root_file.mkdir();
+        }
+
+        File file = new File(Environment.getExternalStorageDirectory() + "/Diary", filename);
+        FileOutputStream os = null;
+        try{
+            os = new FileOutputStream(file);
+            screenBitmap.compress(Bitmap.CompressFormat.PNG, 90, os);
+            os.close();
+        }catch (IOException e){
+            Log.d(TAG, "IOException : " + e.getMessage());
+        }
+
+        view.setDrawingCacheEnabled(false);
+        return file;
+    }
 
 
 
-
-
-
-
+    @Override
+    public boolean onKeyUp(int keyCode, KeyEvent event) {
+        Log.d(TAG, " getKeyCode : " + event.getKeyCode());
+        Log.d(TAG, " getUnicodeChar : " + event.getUnicodeChar());
+        return super.onKeyUp(keyCode, event);
+    }
 
 
     @Override

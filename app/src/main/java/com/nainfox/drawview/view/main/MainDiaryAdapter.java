@@ -7,11 +7,15 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+import com.bumptech.glide.DrawableRequestBuilder;
+import com.bumptech.glide.Glide;
 import com.nainfox.drawview.R;
 import com.nainfox.drawview.util.BitmapHelper;
 
+import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 
 /**
@@ -20,23 +24,21 @@ import java.util.ArrayList;
 
 public class MainDiaryAdapter extends RecyclerView.Adapter<MainDiaryAdapter.ViewHolder> {
     private final String TAG = "### MainDiaryAdapter";
-    private BitmapHelper bitmapHelper;
 
     private Context context;
     private ArrayList<byte[]> all_urls;
 
     public static class ViewHolder extends RecyclerView.ViewHolder{
-        public LinearLayout layout;
+        public ImageView layout;
         public ViewHolder(View view){
             super(view);
-            this.layout = (LinearLayout) view.findViewById(R.id.item_maindiary_canvas);
+            this.layout = (ImageView) view.findViewById(R.id.item_maindiary_canvas);
         }
     }
 
     public MainDiaryAdapter(Context context, ArrayList<byte[]> all_urls){
         this.context = context;
         this.all_urls = all_urls;
-        bitmapHelper = new BitmapHelper();
     }
 
     @Override
@@ -50,19 +52,10 @@ public class MainDiaryAdapter extends RecyclerView.Adapter<MainDiaryAdapter.View
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         try {
-            Log.d(TAG, position + " url : " + all_urls.get(position));
+            BitmapHelper bitmapHelper = new BitmapHelper();
+            Bitmap drawBitmap = bitmapHelper.byteArrayToBitmap(all_urls.get(position)).copy(Bitmap.Config.ARGB_8888, true);
 
-                BitmapHelper bitmapHelper = new BitmapHelper();
-
-                MainCanvasView mainCanvasView = new MainCanvasView(context);
-                Bitmap drawBitmap = bitmapHelper.byteArrayToBitmap(all_urls.get(position)).copy(Bitmap.Config.ARGB_8888, true);
-                mainCanvasView.setBitmap(drawBitmap);
-
-                LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(drawBitmap.getWidth(), drawBitmap.getHeight());
-                holder.layout.setLayoutParams(params);
-                holder.layout.addView(mainCanvasView);
-
-
+            holder.layout.setImageBitmap(drawBitmap);
         }catch (Exception e){
             Log.e(TAG, "error : " + e.getMessage());
         }

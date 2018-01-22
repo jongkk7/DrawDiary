@@ -10,14 +10,14 @@
     <dimen name="titlebarImageSize">30dp</dimen>
     <dimen name="titlebarMargin">20dp</dimen>
     <dimen name="titlebarTextSize">30sp</dimen>
+    <dimen name="weatherMargin">10dp</dimen>
+    <dimen name="weatherImageSize">20dp</dimen>
+    <dimen name="circleImageSize">20dp</dimen>
 
     <!-- text size -->
     <dimen name="bigTextSize">30dp</dimen>
     <dimen name="middleTextSize">20sp</dimen>
     <dimen name="smallTextSize">16sp</dimen>
-
-    <dimen name="weatherImageSize">20dp</dimen>
-    <dimen name="circleImageSize">20dp</dimen>
 
     <!-- bottom layout -->
     <dimen name="colorImageSize">35dp</dimen>
