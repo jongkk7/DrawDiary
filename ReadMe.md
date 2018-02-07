@@ -9,20 +9,20 @@
 <img src="/screenshots/loading.jpeg" width= "40%"/>
 
 #### 튜토리얼
-<img src="/screenshots/tutorial01.jpeg" alt="Drawing" style="width: 150px;"/>
-<img src="/screenshots/tutorial02.jpeg" alt="Drawing" style="width: 150px;"/>
-<img src="/screenshots/tutorial03.jpeg" alt="Drawing" style="width: 150px;"/>
-<img src="/screenshots/tutorial04.jpeg" alt="Drawing" style="width: 150px;"/>
+<img src="/screenshots/tutorial01.jpeg" alt="Drawing" width= "24%"/>
+<img src="/screenshots/tutorial02.jpeg" alt="Drawing" width= "24%"/>
+<img src="/screenshots/tutorial03.jpeg" alt="Drawing" width= "24%"/>
+<img src="/screenshots/tutorial04.jpeg" alt="Drawing" width= "24%"/>
 
 #### 메인화면 & 그림일기 추가 화면
-<img src="/screenshots/no_image.jpeg" alt="Drawing" style="width: 200px;"/>
-<img src="/screenshots/main.jpeg" alt="Drawing" style="width: 200px;"/>
-<img src="/screenshots/draw.jpeg" alt="Drawing" style="width: 200px;"/>
+<img src="/screenshots/no_image.jpeg" alt="Drawing" width= "30%"/>
+<img src="/screenshots/main.jpeg" alt="Drawing" width= "30%"/>
+<img src="/screenshots/draw.jpeg" alt="Drawing" width= "30%"/>
 
 #### 그 외
-<img src="/screenshots/save.jpeg" alt="Drawing" style="width: 200px;"/>
-<img src="/screenshots/popup.jpeg" alt="Drawing" style="width: 200px;"/>
-<img src="/screenshots/save_popup.jpeg" alt="Drawing" style="width: 200px;"/>
+<img src="/screenshots/save.jpeg" alt="Drawing" width= "25%"/>
+<img src="/screenshots/popup.jpeg" alt="Drawing" width= "25%"/>
+<img src="/screenshots/save_popup.jpeg" width= "25%"/>
 
 
 #### TODO
