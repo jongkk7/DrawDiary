@@ -6,7 +6,8 @@
 더 나아가 페이스북, 인스타그램, 카카오톡 들에 공유하는 시스템을 도입할 예정입니다.
 
 #### 로딩
-![](/screenshots/loading.jpeg){:height="100px" width="100px"}
+<img src="/screenshots/loading.jpeg" alt="Drawing" style="width: 150px; height: 250px"/>
+
 #### 튜토리얼
 <img src="/screenshots/tutorial01.jpeg" alt="Drawing" style="width: 150px;"/>
 <img src="/screenshots/tutorial02.jpeg" alt="Drawing" style="width: 150px;"/>
