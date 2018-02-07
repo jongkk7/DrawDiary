@@ -14,17 +14,30 @@
         android:largeHeap="true"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".view.load.LoadingActivity">
+
+        <activity android:name=".view.load.LoadingActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.load.TutorialActivity"/>
-        <activity android:name=".view.main.MainActivity"/>
+
+        <activity android:name=".view.load.TutorialActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".view.main.MainActivity"
+            android:screenOrientation="portrait"/>
+
         <activity android:name=".view.add.AddDiaryActivity"
-            android:windowSoftInputMode="adjustResize"/>
+            android:windowSoftInputMode="adjustResize"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".view.add.ModifyDiaryActivity"
+            android:windowSoftInputMode="adjustResize"
+            android:screenOrientation="portrait"/>
+
 
         <!-- popup -->
         <activity
@@ -32,6 +45,15 @@
             android:theme="@android:style/Theme.Dialog"/>
         <activity
             android:name=".view.add.WeatherPopup"
+            android:theme="@style/AppTheme.CustomPopup"/>
+        <activity
+            android:name=".view.add.ExitPopup"
+            android:theme="@style/AppTheme.CustomPopup"/>
+        <activity
+            android:name=".view.main.SharePopup"
+            android:theme="@style/AppTheme.CustomPopup"/>
+        <activity
+            android:name=".view.add.SavePopup"
             android:theme="@style/AppTheme.CustomPopup"/>
     </application>
 

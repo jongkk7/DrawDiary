@@ -12,27 +12,27 @@
 
     <ImageView
         android:id="@+id/weather_button01"
-        android:background="@drawable/weather01"
+        android:background="@drawable/draw_weather_sun_icon"
         android:layout_width="@dimen/weatherImageSize"
         android:layout_height="@dimen/weatherImageSize" />
 
     <ImageView
         android:id="@+id/weather_button02"
-        android:background="@drawable/weather02"
+        android:background="@drawable/draw_weather_cloud_icon"
         android:layout_marginTop="@dimen/weatherMargin"
         android:layout_width="@dimen/weatherImageSize"
         android:layout_height="@dimen/weatherImageSize" />
 
     <ImageView
         android:id="@+id/weather_button03"
-        android:background="@drawable/weather03"
+        android:background="@drawable/draw_weather_snow_icon"
         android:layout_marginTop="@dimen/weatherMargin"
         android:layout_width="@dimen/weatherImageSize"
         android:layout_height="@dimen/weatherImageSize" />
 
     <ImageView
         android:id="@+id/weather_button04"
-        android:background="@drawable/weather04"
+        android:background="@drawable/draw_weather_rain_icon"
         android:layout_marginTop="@dimen/weatherMargin"
         android:layout_width="@dimen/weatherImageSize"
         android:layout_height="@dimen/weatherImageSize" />

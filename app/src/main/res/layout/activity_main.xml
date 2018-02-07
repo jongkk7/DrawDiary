@@ -10,15 +10,53 @@
     <include layout="@layout/fragment_titlebar"
         android:layout_width="match_parent"
         android:layout_height="@dimen/titlebarHeight"/>
-
-
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/diary_recyclerview"
-        android:background="@color/white"
-        android:elevation="2dp"
-        android:scrollbars="vertical"
+    
+    <FrameLayout
+        android:id="@+id/parentView"
+        android:background="#14000000"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/diary_recyclerview"
+            android:background="@color/white"
+            android:elevation="2dp"
+            android:scrollbars="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+
+
+        <LinearLayout
+            android:id="@+id/main_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-30dp"
+            android:layout_gravity="center"
+            android:visibility="invisible"
+            android:orientation="vertical">
+
+
+            <ImageView
+                android:background="@drawable/main_image_none"
+                android:layout_gravity="center"
+                android:layout_width="150dp"
+                android:layout_height="150dp" />
+
+            <TextView
+                android:text="@string/main.noimage"
+                android:fontFamily="@font/goyang"
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+        
+        
+    </FrameLayout>
+    
 
     <!--<LinearLayout-->
         <!--android:id="@+id/main_view"-->

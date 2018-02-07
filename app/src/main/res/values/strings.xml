@@ -2,8 +2,21 @@
     <string name="app_name">DrawView</string>
 
     <!-- tutorial -->
-    <string name="tutorial01">못 그려도 괜찮아요.</string>
-    <string name="tutorial02">나만의 그림일기를 작성해요</string>
+    <string name="tutorial01">일기 쓰던 그때 그시절 나의 그림\n못그려도 이쁜 나의 그림을 담아보세요.</string>
+    <string name="tutorial02">자신의 감성을 담은 그림일기를 그리는\n공간을 제공합니다.</string>
+    <string name="tutorial03">그림일기를 완성하고\n다양한 칭찬 도장을 받아보세요.</string>
+
+    <!-- main -->
+    <string name="main.noimage">아직 그림일기가 하나도 없어요.</string>
+
+    <!-- popup -->
+    <string name="popup.exit">정말로 나가시겠습니까?</string>
+    <string name="popup.save">정말로 저장하시겠습니까?</string>
+
+    <string name="popup.button.share">공유하기</string>
+    <string name="popup.button.save">저장하기</string>
+    <string name="popup.button.modify">수정하기</string>
+    <string name="popup.button.remove">삭제하기</string>
 
 
     <!-- color -->

@@ -9,14 +9,15 @@
 
     <TextView
         android:text="날씨 : "
-        android:textSize="@dimen/smallTextSize"
+        android:textSize="@dimen/nanoTextSize"
+        android:fontFamily="@font/notoserifcjkkr_medium"
         android:layout_marginLeft="@dimen/smallMargin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
     <ImageView
         android:id="@+id/weather_button"
-        android:background="@drawable/weather01"
+        android:background="@drawable/draw_weather_sun_icon"
         android:layout_marginLeft="@dimen/smallMargin"
         android:layout_gravity="center_vertical"
         android:layout_width="@dimen/weatherImageSize"

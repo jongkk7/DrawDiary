@@ -22,6 +22,7 @@ public class SQLHelper {
 
     public long INSERT(String time, String weather, byte[] url, byte[] all_url, String write){
         ContentValues values = new ContentValues();
+        Log.d(TAG, "db time : " + time);
         values.put(Database.Entry.TIME, time);
         values.put(Database.Entry.WEATHER, weather);
         values.put(Database.Entry.URL, url);
@@ -61,6 +62,10 @@ public class SQLHelper {
         String[] selctionArgs = { id };
 
         db.delete(Database.Entry.TABLE_NAME, selection, selctionArgs);
+    }
+
+    public void DELETE_ALL(){
+        db.delete(Database.Entry.TABLE_NAME, null, null);
     }
 
     public int UPDATE(String id, String time, String weather, byte[] url, byte[] all_url, String write) {

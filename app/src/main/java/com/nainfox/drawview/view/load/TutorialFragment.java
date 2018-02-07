@@ -5,13 +5,13 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.nainfox.drawview.R;
+import com.nainfox.drawview.util.SharedData;
 import com.nainfox.drawview.view.main.MainActivity;
 
 /**
@@ -49,29 +49,37 @@ public class TutorialFragment extends Fragment {
     }
 
     private void init(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState){
-        rootView = (ViewGroup) inflater.inflate(R.layout.fragment_tutorial, container, false);
-        TextView textView = (TextView) rootView.findViewById(R.id.tutorial_textview);
-        ImageView imageView = (ImageView) rootView.findViewById(R.id.tutorial_imageview);
-        Button button = (Button) rootView.findViewById(R.id.tutorial_start_button);
-
         switch (pageNumber){
             case 0:
-                textView.setText(R.string.tutorial01);
-                imageView.setBackgroundResource(R.drawable.tutorial01);
+                rootView = (ViewGroup) inflater.inflate(R.layout.fragment_tutorial01, container, false);
                 break;
             case 1:
-                textView.setText(R.string.tutorial02);
-                imageView.setBackgroundResource(R.drawable.tutorial02);
+                rootView = (ViewGroup) inflater.inflate(R.layout.fragment_tutorial02, container, false);
                 break;
             case 2:
-                textView.setText(R.string.tutorial01);
-                imageView.setBackgroundResource(R.drawable.tutorial01);
-                button.setVisibility(View.VISIBLE);
+                rootView = (ViewGroup) inflater.inflate(R.layout.fragment_tutorial03, container, false);
+                break;
+            case 3:
+                rootView = (ViewGroup) inflater.inflate(R.layout.fragment_tutorial04, container, false);
+
+                final Button button = (Button) rootView.findViewById(R.id.tutorial_start_button);
                 button.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         startActivity(new Intent(getActivity(), MainActivity.class));
                         getActivity().finish();
+                    }
+                });
+                button.setOnTouchListener(new View.OnTouchListener() {
+                    @Override
+                    public boolean onTouch(View view, MotionEvent motionEvent) {
+                        if(motionEvent.getAction() == MotionEvent.ACTION_DOWN){
+                            button.setBackgroundResource(R.drawable.tutorial_start_button);
+                        }else if(motionEvent.getAction() == MotionEvent.ACTION_UP){
+                            button.setBackgroundResource(R.drawable.tutorial_start_button_down);
+                        }
+                        new SharedData(getActivity()).setIsFirst(false);
+                        return false;
                     }
                 });
                 break;

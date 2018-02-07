@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="250dp"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/share_button"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/shareButtonHeight">
+
+
+        <ImageView
+            android:id="@+id/share_image"
+            android:background="@color/gray"
+            android:layout_marginLeft="@dimen/shareImageLeftMargin"
+            android:layout_centerVertical="true"
+            android:layout_width="@dimen/shareImageSize"
+            android:layout_height="@dimen/shareImageSize" />
+
+        <TextView
+            android:text="@string/popup.button.share"
+            android:textColor="@color/black"
+            android:textSize="@dimen/middleTextSize"
+            android:layout_toRightOf="@+id/share_image"
+            android:fontFamily="@font/notoserifcjkkr_medium"
+            android:layout_marginLeft="@dimen/shareImageLeftMargin"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/modify_button"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/shareButtonHeight">
+
+
+        <ImageView
+            android:id="@+id/modify_image"
+            android:background="@color/gray"
+            android:layout_marginLeft="@dimen/shareImageLeftMargin"
+            android:layout_centerVertical="true"
+            android:layout_width="@dimen/shareImageSize"
+            android:layout_height="@dimen/shareImageSize" />
+
+        <TextView
+            android:text="@string/popup.button.modify"
+            android:textColor="@color/black"
+            android:textSize="@dimen/middleTextSize"
+            android:layout_toRightOf="@+id/modify_image"
+            android:fontFamily="@font/notoserifcjkkr_medium"
+            android:layout_marginLeft="@dimen/shareImageLeftMargin"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/save_button"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/shareButtonHeight">
+
+
+        <ImageView
+            android:id="@+id/save_image"
+            android:background="@color/gray"
+            android:layout_marginLeft="@dimen/shareImageLeftMargin"
+            android:layout_centerVertical="true"
+            android:layout_width="@dimen/shareImageSize"
+            android:layout_height="@dimen/shareImageSize" />
+
+        <TextView
+            android:text="@string/popup.button.save"
+            android:textColor="@color/black"
+            android:textSize="@dimen/middleTextSize"
+            android:layout_toRightOf="@+id/save_image"
+            android:fontFamily="@font/notoserifcjkkr_medium"
+            android:layout_marginLeft="@dimen/shareImageLeftMargin"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/remove_button"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/shareButtonHeight">
+
+
+        <ImageView
+            android:id="@+id/remove_image"
+            android:background="@color/gray"
+            android:layout_marginLeft="@dimen/shareImageLeftMargin"
+            android:layout_centerVertical="true"
+            android:layout_width="@dimen/shareImageSize"
+            android:layout_height="@dimen/shareImageSize" />
+
+        <TextView
+            android:text="@string/popup.button.remove"
+            android:textColor="@color/black"
+            android:textSize="@dimen/middleTextSize"
+            android:layout_toRightOf="@+id/remove_image"
+            android:fontFamily="@font/notoserifcjkkr_medium"
+            android:layout_marginLeft="@dimen/shareImageLeftMargin"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/cancelButton"
+        android:background="@color/gray"
+        android:layout_width="match_parent"
+        android:layout_height="30dp">
+
+
+        <ImageView
+            android:background="#ffffff"
+            android:layout_centerInParent="true"
+            android:layout_width="25dp"
+            android:layout_height="25dp" />
+
+    </RelativeLayout>
+</LinearLayout>
+

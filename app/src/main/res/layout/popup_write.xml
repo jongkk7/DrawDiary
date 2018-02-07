@@ -1,39 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="300dp"
-    android:layout_height="200dp"
+    android:layout_height="wrap_content"
     android:background="@color/white"
     android:orientation="vertical">
 
 
     <EditText
         android:id="@+id/text"
-        android:hint="내용을 적어주세요."
-        android:textSize="@dimen/smallTextSize"
-        android:layout_centerInParent="true"
-        android:fontFamily="@font/misaeng"
+        android:maxLength="20"
+        android:hint="내용을 적어주세요.(최대 20글자)"
+        android:focusable="true"
+        android:textSize="@dimen/middleTextSize"
+        android:fontFamily="@font/notoserifcjkkr_medium"
+        android:layout_marginTop="20dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-
-    <Button
-        android:id="@+id/addButton"
-        android:text="등록"
-        android:textColor="@color/gray"
-        android:background="@color/white"
-        android:textSize="@dimen/smallTextSize"
-        android:layout_alignParentBottom="true"
         android:layout_marginBottom="20dp"
-        android:layout_centerInParent="true"
-        android:fontFamily="@font/misaeng"
+        android:inputType="textMultiLine"
+        android:background="@drawable/shape_edittext"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:maxHeight="300dp">
+        <requestFocus/>
+    </EditText>
 
 
-</RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/addButton"
+            android:text="등록"
+            android:fontFamily="@font/notoserifcjkkr_medium"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            style="@style/PopupButtonStyle"/>
+
+        <Button
+            android:id="@+id/cancelButton"
+            android:text="취소"
+            android:fontFamily="@font/notoserifcjkkr_medium"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            style="@style/PopupButtonStyle"/>
+
+
+    </LinearLayout>
+
+</LinearLayout>
 

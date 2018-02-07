@@ -12,6 +12,7 @@ import android.graphics.PorterDuff;
 import android.graphics.PorterDuffColorFilter;
 import android.graphics.PorterDuffXfermode;
 import android.graphics.drawable.BitmapDrawable;
+import android.os.Handler;
 import android.os.Parcelable;
 import android.support.annotation.ColorInt;
 import android.support.annotation.FloatRange;
@@ -45,6 +46,7 @@ public class DrawView extends View implements View.OnTouchListener {
     private Paint penPaint, crayonPaint, eraserPaint;
     private Path currentPath;
 
+    private Canvas canvas;
     private Bitmap oldBitmap; // 예전 그림
 
     private ResizeBehaviour resizeBehaviour;
@@ -56,6 +58,7 @@ public class DrawView extends View implements View.OnTouchListener {
     private int paintStyle = 1; // 1: pen , 2: crayon , 3: eraser
     private int paintColor = DEFAULT_COLOR;
     private int paintAlpha = DEFAULT_ALPHA;
+
     private Bitmap bitmap; // 크래파스 이미지
     private BitmapDrawable bitmapDrawable;
 
@@ -263,6 +266,7 @@ public class DrawView extends View implements View.OnTouchListener {
 
 
     public void clearAll(){
+        oldBitmap = null;
         clearDraw();
         clearHistory();
     }
@@ -341,6 +345,15 @@ public class DrawView extends View implements View.OnTouchListener {
     // 예전 그림 저장
     public void setOldBitmap(Bitmap bitmap){
         oldBitmap = bitmap;
+
+        oldBitmap = bitmap.copy(Bitmap.Config.ARGB_8888, true);
+
+        canvas = new Canvas(oldBitmap);
+
+        draw(canvas);
+
+        invalidate();
+        Log.d(TAG, "setOldBitmap()");
     }
 
     private void initPaints(){
@@ -356,15 +369,18 @@ public class DrawView extends View implements View.OnTouchListener {
         ColorFilter filter = new PorterDuffColorFilter(DEFAULT_COLOR, PorterDuff.Mode.SRC_IN);
         crayonPaint.setColorFilter(filter);
         crayonPaint.setStrokeWidth(DEFAULT_STROKE_WIDTH);
-        bitmapDrawable = (BitmapDrawable) getResources().getDrawable(R.drawable.aa);
+        bitmapDrawable = (BitmapDrawable) getResources().getDrawable(R.drawable.crayon_blush);
         bitmap = bitmapDrawable.getBitmap();
-
+        bitmap = Bitmap.createScaledBitmap(bitmap, (int)getPaintWidth(), (int)getPaintWidth(), false);
     }
+
 
 
 
     @Override
     protected void onDraw(Canvas canvas) {
+        super.onDraw(canvas);
+
         if(paths.size() == 0 && points.size() == 0) return;
 
         final boolean finishedPath = finishPath;

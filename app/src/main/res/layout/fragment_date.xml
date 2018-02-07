@@ -4,20 +4,22 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
     android:orientation="horizontal">
 
     <TextView
         android:id="@+id/date_year_textview"
         android:text="-"
         android:textSize="@dimen/middleTextSize"
-        android:fontFamily="@font/misaeng"
+        android:fontFamily="@font/goyang"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
     <TextView
         android:text="년"
-        android:textSize="@dimen/smallTextSize"
+        android:textSize="@dimen/nanoTextSize"
+        android:fontFamily="@font/notoserifcjkkr_medium"
         android:layout_marginLeft="@dimen/smallMargin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
@@ -26,14 +28,15 @@
         android:id="@+id/date_month_textview"
         android:text="-"
         android:textSize="@dimen/middleTextSize"
-        android:fontFamily="@font/misaeng"
+        android:fontFamily="@font/goyang"
         android:layout_marginLeft="@dimen/smallMargin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
     <TextView
         android:text="월"
-        android:textSize="@dimen/smallTextSize"
+        android:textSize="@dimen/nanoTextSize"
+        android:fontFamily="@font/notoserifcjkkr_medium"
         android:layout_marginLeft="@dimen/smallMargin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
@@ -42,14 +45,15 @@
         android:id="@+id/date_day_textview"
         android:text="-"
         android:textSize="@dimen/middleTextSize"
-        android:fontFamily="@font/misaeng"
+        android:fontFamily="@font/goyang"
         android:layout_marginLeft="@dimen/smallMargin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
     <TextView
         android:text="일"
-        android:textSize="@dimen/smallTextSize"
+        android:textSize="@dimen/nanoTextSize"
+        android:fontFamily="@font/notoserifcjkkr_medium"
         android:layout_marginLeft="@dimen/smallMargin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
@@ -58,14 +62,15 @@
         android:id="@+id/date_date_textview"
         android:text="-"
         android:textSize="@dimen/middleTextSize"
-        android:fontFamily="@font/misaeng"
+        android:fontFamily="@font/goyang"
         android:layout_marginLeft="@dimen/smallMargin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
     <TextView
         android:text="요일"
-        android:textSize="@dimen/smallTextSize"
+        android:textSize="@dimen/nanoTextSize"
+        android:fontFamily="@font/notoserifcjkkr_medium"
         android:layout_marginLeft="@dimen/smallMargin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />

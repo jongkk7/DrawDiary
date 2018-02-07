@@ -5,25 +5,27 @@
 그림과 글을 옛날 그림일기 방식으로 만들어내어 소장할 수 있고,
 더 나아가 페이스북, 인스타그램, 카카오톡 들에 공유하는 시스템을 도입할 예정입니다.
 
-#### 로딩, 튜토리얼
-<img src="/screenshots/screenshot01.jpeg" alt="Drawing" style="width: 200px;"/>
-<img src="/screenshots/screenshot02.jpeg" alt="Drawing" style="width: 200px;"/>
-<img src="/screenshots/screenshot03.jpeg" alt="Drawing" style="width: 200px;"/>
+#### 로딩
+<img src="/screenshots/loading.jpeg" alt="Drawing" style="width: 150px;"/>
 
-#### 메인화면
-<img src="/screenshots/screenshot04.jpeg" alt="Drawing" style="width: 200px;"/>
+#### 튜토리얼
+<img src="/screenshots/tutorial01.jpeg" alt="Drawing" style="width: 150px;"/>
+<img src="/screenshots/tutorial02.jpeg" alt="Drawing" style="width: 150px;"/>
+<img src="/screenshots/tutorial03.jpeg" alt="Drawing" style="width: 150px;"/>
+<img src="/screenshots/tutorial04.jpeg" alt="Drawing" style="width: 150px;"/>
 
-#### 추가화면
-<img src="/screenshots/screenshot05.jpeg" alt="Drawing" style="width: 200px;"/>
-<img src="/screenshots/screenshot06.jpeg" alt="Drawing" style="width: 200px;"/>
-<img src="/screenshots/screenshot07.jpeg" alt="Drawing" style="width: 200px;"/>
+#### 메인화면 & 그림일기 추가 화면
+<img src="/screenshots/no_image.jpeg" alt="Drawing" style="width: 200px;"/>
+<img src="/screenshots/main.jpeg" alt="Drawing" style="width: 200px;"/>
+<img src="/screenshots/draw.jpeg" alt="Drawing" style="width: 200px;"/>
+
+#### 그 외
+<img src="/screenshots/save.jpeg" alt="Drawing" style="width: 200px;"/>
+<img src="/screenshots/popup.jpeg" alt="Drawing" style="width: 200px;"/>
+<img src="/screenshots/save_popup.jpeg" alt="Drawing" style="width: 200px;"/>
+
 
 #### TODO
-1. 메인화면에서 이미지 중복 ( RecyclerView 문제 ? )
-2. 작성된 일기 수정
-3. 날씨 선택
-4. 글씨체 선택 가능
-5. 텍스트 넣는 프로세스 변경 <br>
-	( 클릭시 키보드자판과 글씨칸이 위로 올라가고 실시간 텍스트 반영 )
-6. 제공하는 이미지 드래그 앤 드랍 기능
-7. 지우개 기능 ( 그림의 Path와 겹치면 지워지는 ? ) -> 가능하면 배경 추가
+1. 리스트 아이템 2개에서 삭제시 화면 갱신 문제
+2. 공유, 수정, 저장, 삭제 팝업 디자인 수정
+3. 수정 시 히스토리 삭제, 처음 한 지점이 지정되어있음

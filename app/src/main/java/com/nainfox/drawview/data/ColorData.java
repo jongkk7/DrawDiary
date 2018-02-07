@@ -5,31 +5,18 @@ package com.nainfox.drawview.data;
  */
 
 public class ColorData {
-    public String color01;
-    public String color02;
-    public String color03;
-    public String color04;
-    public String color05;
-    public String color06;
-    public String color07;
-    public String color08;
-    public String color09;
-    public String color10;
-    public String color11;
-    public String color12;
+    public static String color00= "#FF4A67";
+    public static String color01= "#7C4CB8";
+    public static String color02= "#FF7B67";
+    public static String color03= "#FF8EBD";
+    public static String color04= "#FFC667";
+    public static String color05= "#FFB08E";
+    public static String color06= "#48B367";
+    public static String color07= "#50BEB8";
+    public static String color08= "#507BB8";
+    public static String color09= "#393884";
+    public static String color10= "#000000";
+    public static String color11= "#FFFFFF";
 
-    public ColorData(){
-        color01 = "#FF4A67";
-        color02 = "#7C4CB8";
-        color03 = "#FF7B67";
-        color04 = "#FF8EBD";
-        color05 = "#FFC667";
-        color06 = "#FFB08E";
-        color07 = "#48B367";
-        color08 = "#50BEB8";
-        color09 = "#507BB8";
-        color10 = "#000000";
-        color11 = "#393884";
-        color12 = "#FFFFFF";
-    }
+
 }

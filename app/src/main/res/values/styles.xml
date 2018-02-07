@@ -15,4 +15,17 @@
         <item name="android:windowCloseOnTouchOutside">true</item>
     </style>
 
+    <style name="MySeekBar" parent="Widget.AppCompat.SeekBar">
+        <item name="android:progressBackgroundTint">@color/darkgray</item>
+        <item name="android:progressTint">#FF000000</item>
+        <item name="android:colorControlActivated">@color/black</item>
+    </style>
+
+    <style name="PopupButtonStyle">
+        <item name="android:textSize">@dimen/nanoTextSize</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:background">@drawable/shape_popup_buttom</item>
+        <item name="android:fontFamily">@font/notoserifcjkkr_medium</item>
+        <item name="android:layout_margin">10dp</item>
+    </style>
 </resources>

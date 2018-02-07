@@ -23,6 +23,7 @@ public class WriteFactory {
     private final String TAG = "### WriteFactory";
 
     private TextView[] textViews;
+    private int textSize = 20;
 
     public WriteFactory(){
 
@@ -68,21 +69,26 @@ public class WriteFactory {
                 textView.setId(id);
                 textView.setGravity(Gravity.CENTER);
                 textView.setText("");
-                textView.setTextSize(25);
+                textView.setTextSize(textSize);
                 textView.setTextColor(Color.BLACK);
                 textView.setTypeface(typeface);
-                textView.setBackgroundResource(R.drawable.shape_write_place);
+
 
                 if (i != 1) {
                     params.addRule(RelativeLayout.RIGHT_OF, textViews[id - 1].getId());
+                    textView.setBackgroundResource(R.drawable.shape_write_place2);
                 } else {
                     params.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
+                    textView.setBackgroundResource(R.drawable.shape_write_place);
                 }
 
                 if (j != 0) {
                     params.addRule(RelativeLayout.BELOW, textViews[id - count].getId());
                 } else {
                     params.addRule(RelativeLayout.ALIGN_PARENT_TOP);
+                }
+                if (j > 0){
+                    params.setMargins(0,-10,0,0);
                 }
 
                 textView.setLayoutParams(params);

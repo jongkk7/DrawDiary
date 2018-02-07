@@ -11,19 +11,25 @@
     <ImageView
         android:id="@+id/loadingView"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="150dp"
         android:layout_width="130dp"
         android:layout_height="160dp" />
 
+    <ImageView
+        android:layout_below="@+id/loadingView"
+        android:layout_centerHorizontal="true"
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"/>
 
     <TextView
-        android:text="NAINFOX"
-        android:textColor="@color/gray"
+        android:text="Nainfox company"
+        android:textColor="#77000000"
         android:textSize="@dimen/smallTextSize"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="20dp"
         android:layout_centerInParent="true"
-        android:fontFamily="@font/misaeng"
+        android:fontFamily="@font/goyang"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_marginTop="@dimen/logoMarginTop"
+        android:layout_centerHorizontal="true"
+        android:layout_width="@dimen/logoWidth"
+        android:layout_height="@dimen/logoHeight"
+        android:background="@drawable/logo"
+        />
+    
+    <ImageView
+        android:id="@+id/tutorial_imageview"
+        android:background="@drawable/tutorial_image03"
+        android:layout_below="@+id/logo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/tutorialMarginTop"
+        android:layout_width="@dimen/tutorialSize"
+        android:layout_height="@dimen/tutorialSize" />
+
+
+    <TextView
+        android:id="@+id/tutorial_textview"
+        android:text="@string/tutorial03"
+        android:textSize="@dimen/smallTextSize"
+        android:textAlignment="center"
+        android:fontFamily="@font/goyang"
+        android:layout_marginTop="@dimen/tutorialTextMarginTop"
+        android:layout_below="@+id/tutorial_imageview"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+
+</RelativeLayout>
+

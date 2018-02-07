@@ -3,11 +3,19 @@
 
     <!-- tutorial -->
     <dimen name="tutorialImageMarginTop">130dp</dimen>
-    <dimen name="tutorialTextMarginTop">40dp</dimen>
+    <dimen name="tutorialTextMarginTop">60dp</dimen>
+    <dimen name="logoWidth">120dp</dimen>
+    <dimen name="logoHeight">30dp</dimen>
+    <dimen name="logoMarginTop">40dp</dimen>
+    <dimen name="tutorialMarginTop">70dp</dimen>
+    <dimen name="tutorialSize">270dp</dimen>
+    <dimen name="startButtonMarginBottom">100dp</dimen>
+    <dimen name="startButtonWidth">250dp</dimen>
+    <dimen name="startButtonHeight">60dp</dimen>
 
     <!-- title bar -->
     <dimen name="titlebarHeight">58dp</dimen>
-    <dimen name="titlebarImageSize">30dp</dimen>
+    <dimen name="titlebarImageSize">20dp</dimen>
     <dimen name="titlebarMargin">20dp</dimen>
     <dimen name="titlebarTextSize">30sp</dimen>
     <dimen name="weatherMargin">10dp</dimen>
@@ -18,15 +26,26 @@
     <dimen name="bigTextSize">30dp</dimen>
     <dimen name="middleTextSize">20sp</dimen>
     <dimen name="smallTextSize">16sp</dimen>
+    <dimen name="nanoTextSize">10sp</dimen>
 
     <!-- bottom layout -->
+    <dimen name="penImageSize">40dp</dimen>
     <dimen name="colorImageSize">35dp</dimen>
     <dimen name="colorImageMarginLeft">10dp</dimen>
     <dimen name="bottomButtonMarginBottom">-50dp</dimen>
+    <dimen name="bottomButtonPadding">10dp</dimen>
 
     <!-- padding -->
     <dimen name="topPadding">10dp</dimen>
 
     <!-- margin -->
     <dimen name="smallMargin">5dp</dimen>
+
+    <!-- share popup -->
+    <dimen name="shareButtonHeight">60dp</dimen>
+    <dimen name="shareImageSize">40dp</dimen>
+    <dimen name="shareImageLeftMargin">30dp</dimen>
+
+
+
 </resources>

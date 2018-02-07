@@ -9,25 +9,24 @@
 
     <ImageView
         android:id="@+id/titlebar_backbutton"
-        android:background="@drawable/back_button"
+        android:background="@drawable/draw_back_icon"
         android:visibility="invisible"
         android:layout_marginLeft="@dimen/titlebarMargin"
         android:layout_centerVertical="true"
         android:layout_width="@dimen/titlebarImageSize"
         android:layout_height="@dimen/titlebarImageSize" />
 
-    <TextView
-        android:text="그림일기"
-        android:textSize="@dimen/titlebarTextSize"
+    <ImageView
+        android:background="@drawable/logo"
         android:fontFamily="@font/misaeng"
         android:layout_centerInParent="true"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_width="100dp"
+        android:layout_height="25dp" />
 
     <ImageView
         android:id="@+id/titlebar_addbutton"
         android:visibility="invisible"
-        android:background="@drawable/add_button"
+        android:background="@drawable/main_icon_draw"
         android:layout_marginRight="@dimen/titlebarMargin"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
@@ -37,13 +36,15 @@
     <TextView
         android:id="@+id/titlebar_savebutton"
         android:text="저장하기"
-        android:textSize="@dimen/smallTextSize"
+        android:textSize="@dimen/nanoTextSize"
+        android:fontFamily="@font/notoserifcjkkr_medium"
         android:visibility="invisible"
+        android:padding="10dp"
         android:layout_marginRight="@dimen/titlebarMargin"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
         android:layout_width="wrap_content"
-        android:layout_height="@dimen/titlebarImageSize" />
+        android:layout_height="wrap_content" />
 
     <View
         android:background="@color/gray"
